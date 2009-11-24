@@ -1,5 +1,12 @@
 require 'rubygems'
-require 'ruby-growl'
+case RUBY_PLATFORM
+when 'linux'
+  require 'ruby-growl'
+  NOTIFY = Growl
+else
+  require 'lib/ruby-notify'
+  NOTIFY = Notify
+end
 require 'pp'
 
 $g_host ||= "localhost"
@@ -8,7 +15,7 @@ $g_sticky ||= true
 
 module Kernel
   def g(*args, &block)
-    growl = Growl.new $g_host, $0, ["Kernel.g"]
+    growl = NOTIFY.new $g_host, $0, ["Kernel.g"]
 
     args.push(block) if block
 
