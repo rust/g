@@ -4,7 +4,7 @@ when 'linux'
   require 'ruby-growl'
   NOTIFY = Growl
 else
-  require 'lib/ruby-notify'
+  require 'ruby-notify'
   NOTIFY = Notify
 end
 require 'pp'

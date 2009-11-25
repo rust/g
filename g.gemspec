@@ -3,7 +3,7 @@ Gem::Specification.new do |s|
   s.version = '1.2.0'
   s.summary = "The Kernel.g that works like Kernel.p on growl :)"
   s.description = "The Kernel.g that works like Kernel.p on growl :)"
-  s.files = %w( lib/g.rb
+  s.files = %w( lib/ruby-notify.rb lib/g.rb
                 spec/g_spec.rb
                 README.markdown
                 Rakefile )

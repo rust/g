@@ -11,7 +11,8 @@ class Notify
                         'normal'
                       end
     notify_expire = sticky ? 0 : 3000
+    notify_message = message.gsub(/</, "&lt;").gsub(/>/, "&gt;")
 
-    system 'notify-send', "--urgency=#{notify_priority}", "--expire-time=#{notify_expire}", "--", title, message
+    system 'notify-send', "--urgency=#{notify_priority}", "--expire-time=#{notify_expire}", "--", title, notify_message
   end
 end
